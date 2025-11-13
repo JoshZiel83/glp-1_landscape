@@ -1,9 +1,14 @@
+import os
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 import time
 import logging
+from dotenv import load_dotenv, find_dotenv
 
+load_dotenv(find_dotenv())
+email = os.getenv("ENTREZ_EMAIL")
+tool = os.getenv("TOOL_NAME")
 logger = logging.getLogger(__name__)
 
 def search_mesh_term(condition, delay=0.35, filter_diseases_only=True):
@@ -23,7 +28,7 @@ def search_mesh_term(condition, delay=0.35, filter_diseases_only=True):
         search_term = urllib.parse.quote(condition)
         
         # Step 1: Search for MeSH term using esearch
-        esearch_url = f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=mesh&term={search_term}&retmode=xml&retmax=1&sort=relevance"
+        esearch_url = f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=mesh&term={search_term}&retmode=xml&retmax=1&sort=relevance&tool={tool}&email={email}"
         
         with urllib.request.urlopen(esearch_url) as response:
             search_xml = response.read()
