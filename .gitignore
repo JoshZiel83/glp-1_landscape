@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.pkl
 .Python
 build/
 develop-eggs/
@@ -101,9 +102,3 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# Project-specific
-# Add any project-specific files or directories to ignore below
-src/sci_intel/logs/
-langgraph_api/
-data/
-annotator/saved_state
