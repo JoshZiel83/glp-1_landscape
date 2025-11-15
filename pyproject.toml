@@ -3,7 +3,7 @@ name = "glp-1-landscape"
 version = "0.1.0"
 description = "Example workflow to build a model of the GLP-1RA clinical trial landscape"
 authors = [
-    {name = "Your Name",email = "you@example.com"}
+    {name = "Kynetyk",email = "you@example.com"}
 ]
 readme = "README.md"
 requires-python = ">3.12,<3.14"
@@ -24,6 +24,8 @@ dependencies = [
     "matplotlib (>=3.10.7,<4.0.0)",
 ]
 
+[tool.poetry]
+package-mode = false
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
